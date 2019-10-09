@@ -92,6 +92,8 @@ Show Kiali
 
 deploy respy and frontend v2
 
+show kiali > Versioned App Graph
+
 use watch respy on `/version` endpoint for frontend -- show round robin (50/50)
 
 split traffic 90/10:
@@ -101,4 +103,6 @@ kubectl apply -f split-traffic.yaml
 ```
 
 show percentages in respy
+
+show kiali requests percentage
 
