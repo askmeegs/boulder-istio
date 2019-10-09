@@ -38,7 +38,7 @@ For authz, add headers:
 curl -H "hello:world" -d "fall=awesome&pumpkins=great" -X POST httpbin:8000/anything
 ```
 
-## 4 - path based routing ("read headers")
+## 4 - path based routing
 
 Deploy an httpecho service alongside httpbin.
 
@@ -58,7 +58,7 @@ Now curl httpbin with the path prefix -- request is forwarded to the echo servic
 curl -H "hello:world" httpbin:8000/echo
 ```
 
-## 5 - header manipulation ("write headers")
+## 5 - header manipulation
 
 ```
 curl -I echo:80
