@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: echo-headers
+spec:
+  hosts:
+  - echo
+  http:
+  - route:
+    - destination:
+        host: echo
+        port:
+          number: 80
+      headers:
+        response:
+          remove:
+          - "content-type"
+          - "content-length"
+          - "date"
+          add:
+            october: "👻spooky🎃"

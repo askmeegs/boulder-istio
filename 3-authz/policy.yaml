@@ -1,0 +1,31 @@
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ClusterRbacConfig
+metadata:
+  name: default
+spec:
+  mode: 'ON_WITH_INCLUSION' #enable Authz for the httpbin service only
+  inclusion:
+    services: ["httpbin.default.svc.cluster.local"]
+---
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRole
+metadata:
+  name: httpbin-user
+  namespace: default
+spec:
+  rules:
+  - services: ["httpbin.default.svc.cluster.local"]
+    methods: ["POST", "GET", "PUT", "HEAD", "DELETE"]
+---
+apiVersion: "rbac.istio.io/v1alpha1"
+kind: ServiceRoleBinding
+metadata:
+  name: httpbin-user-binding
+  namespace: default
+spec:
+  subjects:
+  - properties:
+      request.headers[hello]: "world"
+  roleRef:
+    kind: ServiceRole
+    name: "httpbin-user"

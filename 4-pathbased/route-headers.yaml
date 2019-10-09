@@ -1,0 +1,19 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: echo-path-redirect
+spec:
+  hosts:
+  - httpbin #for all httpbin traffic ...
+  http:
+  - match:
+    - uri:
+        prefix: "/echo"  # if the request is httpbin:8000/echo, route to echo service running on a different port!
+    route:
+    - destination:
+        host: echo
+        port:
+          number: 80
+  - route:
+    - destination:
+        host: httpbin #otherwise, route to httpbin as usual.

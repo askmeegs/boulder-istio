@@ -1,7 +1,7 @@
 #!/bin/bash
 
 WORKDIR="/Users/mokeefe"
-ISTIO_VERSION=1.3.1
+ISTIO_VERSION=1.3.2
 
 kubectl create namespace istio-system
 
