@@ -11,7 +11,7 @@ spec:
         prefix: "/echo"  # if the request is httpbin:8000/echo, route to echo service running on a different port!
     route:
     - destination:
-        host: echo
+        host: echo.default.svc.cluster.local
         port:
           number: 80
   - route:

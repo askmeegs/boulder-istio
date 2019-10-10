@@ -88,7 +88,7 @@ Open Frontend in browser
 
 Show Kiali
 
-## 7 - canary deployments with Flagger
+## 7 - canary deployments
 
 deploy respy and frontend v2
 

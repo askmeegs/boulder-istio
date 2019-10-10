@@ -4,6 +4,9 @@ metadata:
   name: frontend
 spec:
   host: frontend
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
   subsets:
   - name: v1
     labels:
